@@ -7,7 +7,7 @@ import React from 'react';
 
 function App() {
 	return (
-		<div className='h-screen flex flex-col items-center justify-center'>
+		<div className='h-screen flex flex-col items-center justify-center bg-gray-100'>
 			<h2 className='mb-6 text-2xl font-bold'>Сравните цвета</h2>
 			<div className='flex justify-center items-center gap-6'>
 				<div className="p-4 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md">
