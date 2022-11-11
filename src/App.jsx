@@ -4,6 +4,11 @@ import React from 'react';
 // TODO: rgb and rgba
 // TODO: add new color to comparison
 // TODO: write color in query
+// TODO: dark mode
+// TODO: mobile markup
+// TODO: сравнение двух цветов вплотную друг к другу
+
+const hexRegex = /^#((\d|[A-Fa-f]){3}|(\d|[A-Fa-f]){6})$/;
 
 function App() {
 	return (
