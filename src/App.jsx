@@ -5,9 +5,6 @@ import { useThemeToggle } from './hooks/useThemeToggle';
 
 import { ColorCard } from './components/ColorCard';
 
-import { ReactComponent as DarkLogo } from './assets/icons/dark.svg';
-import { ReactComponent as LightLogo } from './assets/icons/light.svg';
-
 // !5 TODO: rgb and rgba
 // !4 TODO: add new color to comparison
 // !2 TODO: mobile markup
