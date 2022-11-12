@@ -24,17 +24,22 @@ function App() {
 		});
 	}
 
+	function hexValueTest(id) {
+		return hexRegexMask.test(hexList[id]) || !hexList[id];
+	}
+
+	function hexValueFullTest(id) {
+		return hexRegexFull.test(hexList[id])
+	}
+
 	return (
 		<div className='h-screen flex flex-col items-center justify-center bg-gray-100'>
 			<h2 className='mb-6 text-2xl font-bold'>Сравните цвета</h2>
 			<div className='flex justify-center items-center gap-6'>
-				<div className="p-4 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md">
+				<div className="p-4 h-64 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md">
 					<div
-						className='w-full h-24 mb-4'
-						style={{
-							background: hexRegexFull.test(hexList['hex1']) ? hexList['hex1'] : '',
-							border: hexRegexFull.test(hexList['hex1']) ? '' : '1px solid black',
-						}}
+						className={`w-full h-28 mb-4 ${hexValueFullTest('hex1') ? '' : 'border border-black border-solid'}`}
+						style={{ background: hexValueFullTest('hex1') ? hexList['hex1'] : '' }}
 					/>
 					<label
 						htmlFor="hex1"
@@ -46,22 +51,21 @@ function App() {
 						type="text"
 						id="hex1"
 						onInput={onInputHex}
-						className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+						className={
+							`bg-gray-50 border text-gray-900 text-sm rounded-lg block w-full p-2.5 ${hexValueTest('hex1') ? 'border-gray-300' : 'border-2 border-red-800 focus-visible:border-red-800' }`
+						}
 						placeholder="#"
 					/>
 					{
-						hexRegexMask.test(hexList['hex1']) || !hexList['hex1']
+						hexValueTest('hex1')
 							? null
-							: <span>Not valid</span>
+							: <span className='text-xs text-red-800'>Not valid</span>
 					}
 				</div>
-				<div className="p-4 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md">
+				<div className="p-4 h-64 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md">
 					<div
-						className='w-full h-24 mb-4'
-						style={{
-							background: hexRegexFull.test(hexList['hex2']) ? hexList['hex2'] : '',
-							border: hexRegexFull.test(hexList['hex2']) ? '' : '1px solid black',
-						}}
+						className={`w-full h-28 mb-4 ${hexValueFullTest('hex2') ? '' : 'border border-black border-solid'}`}
+						style={{ background: hexValueFullTest('hex2') ? hexList['hex2'] : '' }}
 					/>
 					<label
 						htmlFor="hex2"
@@ -73,13 +77,15 @@ function App() {
 						type="text"
 						id="hex2"
 						onInput={onInputHex}
-						className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+						className={
+							`bg-gray-50 border text-gray-900 text-sm rounded-lg block w-full p-2.5 ${hexValueTest('hex2') ? 'border-gray-300' : 'border-2 border-red-800 focus-visible:border-red-800' }`
+						}
 						placeholder="#"
 					/>
 					{
-						hexRegexMask.test(hexList['hex2']) || !hexList['hex2']
+						hexValueTest('hex2')
 							? null
-							: <span>Not valid</span>
+							: <span className='text-xs text-red-800'>Not valid</span>
 					}
 				</div>
 			</div>
