@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 // TODO: rgb and rgba
 // TODO: add new color to comparison
@@ -11,17 +12,25 @@ const hexRegexFull = /^#((\d|[A-Fa-f]){3}|(\d|[A-Fa-f]){6})$/;
 const hexRegexMask = /^#((\d|[A-Fa-f]){0,6})$/;
 
 function App() {
-	const [hexList, setHexList] = useState({});
+	const [searchParams, setSearchParams] = useSearchParams();
+
+	const [hexList, setHexList] = useState({
+		hex1: '',
+		hex2: '',
+	});
 
 	function onInputHex(event) {
 		if (event.target.value.length === 6 && event.target.value[0] !== "#") {
 			event.target.value = `#${event.target.value}`;
 		}
 
-		setHexList({
+		const newHexList = {
 			...hexList,
 			[event.target.id]: event.target.value,
-		});
+		}
+
+		setHexList(newHexList);
+		setSearchParams(newHexList);
 	}
 
 	function hexValueTest(id) {
@@ -31,6 +40,21 @@ function App() {
 	function hexValueFullTest(id) {
 		return hexRegexFull.test(hexList[id])
 	}
+
+	useEffect(() => {
+		let newHexList = {};
+
+		for (let key of searchParams.keys()) {
+			const value = searchParams.get(key);
+
+			newHexList = {
+				...newHexList,
+				[key]: value
+			};
+		}
+
+		setHexList(newHexList);
+	}, []);
 
 	return (
 		<div className='h-screen flex flex-col items-center justify-center bg-gray-100'>
@@ -50,6 +74,7 @@ function App() {
 					<input
 						type="text"
 						id="hex1"
+						value={hexList.hex1}
 						onInput={onInputHex}
 						className={
 							`bg-gray-50 border text-gray-900 text-sm rounded-lg block w-full p-2.5 ${hexValueTest('hex1') ? 'border-gray-300' : 'border-2 border-red-800 focus-visible:border-red-800' }`
@@ -76,6 +101,7 @@ function App() {
 					<input
 						type="text"
 						id="hex2"
+						value={hexList.hex2}
 						onInput={onInputHex}
 						className={
 							`bg-gray-50 border text-gray-900 text-sm rounded-lg block w-full p-2.5 ${hexValueTest('hex2') ? 'border-gray-300' : 'border-2 border-red-800 focus-visible:border-red-800' }`
