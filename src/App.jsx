@@ -7,12 +7,16 @@ import { ColorCard } from './components/ColorCard';
 
 // !5 TODO: rgb and rgba
 // !4 TODO: add new color to comparison
-// !2 TODO: mobile markup
-// !3 TODO: сравнение двух цветов вплотную друг к другу
 
 function App() {
 	const { queryColorList, setSearchParams } = useQueryColors();
 	const { toggleDarkMode, darkMode } = useThemeToggle();
+
+	const [cardSplit, setCardSplit] = useState(false);
+
+	function toggleCardSplit() {
+		setCardSplit(prevValue => !prevValue);
+	}
 
 	const [hexList, setHexList] = useState({
 		hex1: '',
@@ -51,18 +55,32 @@ function App() {
 					: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 transform -rotate-90"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
 				}
 			</button>
-			<h2 className='mb-6 text-2xl 4xl:text-4xl font-bold text-gray-900 dark:text-gray-100'>Сравните цвета</h2>
-			<div className='flex justify-center flex-wrap items-center gap-6'>
-				{Object.keys(hexList).map(colorCode => {
-					return (
-						<ColorCard
-							key={colorCode}
-							onInputHex={onInputHex}
-							id={colorCode}
-							hexValue={hexList[colorCode]}
-						/>
-					);
-				})}
+			<div>
+				<div className='mb-4 relative h-11'>
+					<h2 className='text-center text-2xl 4xl:text-4xl font-bold text-gray-900 dark:text-gray-100'>Compare colors</h2>
+					<button
+						onClick={toggleCardSplit}
+						className='absolute right-0 top-0 text-gray-700 transition duration-150 ease-in-out p-2 text bg-gray-100 border border-transparent rounded-md dark:text-gray-200 dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-700 focus:outline-none focus:bg-gray-50 dark:focus:bg-gray-700 active:bg-gray-50'
+					>
+						{cardSplit
+							? <svg className='h-5 w-5' viewBox="0 0 24 24"><path fill="currentColor" d="M18,16V13H15V22H13V2H15V11H18V8L22,12L18,16M2,12L6,16V13H9V22H11V2H9V11H6V8L2,12Z" /></svg>
+							: <svg className='h-5 w-5' viewBox="0 0 24 24"><path fill="currentColor" d="M13,20V4H15.03V20H13M10,20V4H12.03V20H10M5,8L9.03,12L5,16V13H2V11H5V8M20,16L16,12L20,8V11H23V13H20V16Z" /></svg>
+						}
+					</button>
+				</div>
+				<div className={`flex justify-center flex-wrap items-center ${!cardSplit ? 'gap-6' : ''}`}>
+					{Object.keys(hexList).map(colorCode => {
+						return (
+							<ColorCard
+								key={colorCode}
+								onInputHex={onInputHex}
+								id={colorCode}
+								hexValue={hexList[colorCode]}
+								cardSplit={cardSplit}
+							/>
+						);
+					})}
+				</div>
 			</div>
 		</div>
 	);
