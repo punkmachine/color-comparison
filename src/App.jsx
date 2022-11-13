@@ -7,6 +7,7 @@ import { ColorCard } from './components/ColorCard';
 
 // !5 TODO: rgb and rgba
 // !4 TODO: add new color to comparison
+// TODO: add footer.
 
 function App() {
 	const { queryColorList, setSearchParams } = useQueryColors();
