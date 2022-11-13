@@ -8,13 +8,9 @@ export const useThemeToggle = () => {
     }
 
 	useEffect(() => {
-		if (darkMode) {
-			localStorage.setItem('theme', 'dark');
-		} else {
-			localStorage.setItem('theme', 'light');
-		}
+		localStorage.setItem('theme', darkMode ? 'dark' : 'light');
 
-		if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+		if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
 			document.documentElement.classList.add('dark')
 		} else {
 			document.documentElement.classList.remove('dark')
