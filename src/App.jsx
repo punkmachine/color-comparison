@@ -5,9 +5,10 @@ import { DarkModeToggle } from './components/DarkModeToggle';
 
 // !5 TODO: rgb and rgba
 // !4 TODO: add new color to comparison
-// TODO: add footer.
 // TODO: add svg component.
 // TODO: нормальная валидация.
+// TODO: add toggle hook.
+// TODO: add prettier tailwind.
 
 function App() {
 	const { queryColorList, setSearchParams } = useQueryColors();
@@ -73,6 +74,16 @@ function App() {
 						);
 					})}
 				</div>
+			</div>
+			<div className="absolute bottom-10 text-gray-900 dark:text-white">
+				Powered by&nbsp;
+				<a
+					href='https://github.com/punkmachine'
+					target="_blank"
+					className='underline hover:text-cyan-700 dark:hover:text-cyan-300 transition duration-150 ease-in-out'
+				>
+					Punk Machine
+				</a>
 			</div>
 		</div>
 	);
