@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.main-transition {
+	@apply transition duration-150 ease-in-out;
+}
+
+.icons-size {
+	@apply h-5 w-5;
+}
