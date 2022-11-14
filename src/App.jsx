@@ -7,6 +7,7 @@ import { DarkModeToggle } from './components/DarkModeToggle';
 // !4 TODO: add new color to comparison
 // TODO: add footer.
 // TODO: add svg component.
+// TODO: нормальная валидация.
 
 function App() {
 	const { queryColorList, setSearchParams } = useQueryColors();
