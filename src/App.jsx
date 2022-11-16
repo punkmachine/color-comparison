@@ -46,14 +46,15 @@ function App() {
 	}, [queryColorList]);
 
 	return (
-		<div className='relative h-screen flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900 main-transition'>
+		<div className='relative h-full flex flex-col bg-gray-100 dark:bg-gray-900 main-transition'>
 			<DarkModeToggle />
-			<div>
-				<div className='relative h-11 mb-4'>
+
+			<div className="max-w-screen-lg grow shrink-0 basis-auto m-auto flex flex-col items-center justify-center">
+				<div className='relative w-full sm:h-11 mb-4 flex flex-col items-center'>
 					<h2 className='text-center text-2xl 4xl:text-4xl font-bold text-gray-900 dark:text-gray-100'>Compare colors</h2>
 					<button
 						onClick={toggleCardSplit}
-						className='absolute right-0 top-0 p-2 text-gray-700 main-transition bg-gray-100 border border-transparent rounded-md dark:text-gray-200 dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-700 focus:outline-none focus:bg-gray-50 dark:focus:bg-gray-700 active:bg-gray-50'
+						className='sm:absolute right-0 top-0 w-max p-2 mt-2 sm:mt-0 text-gray-700  main-transition bg-gray-100 border border-transparent rounded-md dark:text-gray-200 dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-700 focus:outline-none focus:bg-gray-50 dark:focus:bg-gray-700 active:bg-gray-50'
 					>
 						{cardSplit
 							? <svg className='icons-size' viewBox="0 0 24 24"><path fill="currentColor" d="M18,16V13H15V22H13V2H15V11H18V8L22,12L18,16M2,12L6,16V13H9V22H11V2H9V11H6V8L2,12Z" /></svg>
@@ -62,8 +63,8 @@ function App() {
 					</button>
 				</div>
 				<div className={`flex justify-center flex-wrap items-center ${!cardSplit ? 'gap-6' : ''}`}>
-					{Object.keys(hexList).map(colorCode => {
-						return (
+		 			{Object.keys(hexList).map(colorCode => {
+		 				return (
 							<ColorCard
 								key={colorCode}
 								onInputHex={onInputHex}
@@ -75,7 +76,7 @@ function App() {
 					})}
 				</div>
 			</div>
-			<div className="absolute bottom-10 text-gray-900 dark:text-white">
+			<div className="grow-0 shrink-0 basis-auto m-auto h-12 text-gray-900 dark:text-white">
 				Powered by&nbsp;
 				<a
 					href='https://github.com/punkmachine'
