@@ -17,7 +17,7 @@ function ColorCard(props) {
 			/>
 			<label
 				htmlFor={id}
-				className={`${!cardSplit ? 'block mt-4' : 'hidden'} mb-2 text-sm 4xl:text-lg font-medium text-gray-900 dark:text-gray-100`}
+				className={`${!cardSplit ? 'block mt-4' : 'hidden'} mb-2 text-sm 4xl:text-lg font-medium text-color`}
 			>
 				HEX code:
 			</label>

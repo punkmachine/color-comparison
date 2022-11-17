@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body, #root {
+	height: 100%;
+}
+
+h1 {
+	@apply text-2xl 4xl:text-4xl font-bold text-color;
+}
+
+a {
+	@apply underline text-color hover:text-cyan-700 dark:hover:text-cyan-300 main-transition;
+}
+
 .main-transition {
 	@apply transition duration-150 ease-in-out;
 }
@@ -10,10 +22,10 @@
 	@apply h-5 w-5;
 }
 
-html, body, #root {
-  height: 100%;
-}
-
 .m-auto {
 	@apply mx-auto my-0;
+}
+
+.text-color {
+	@apply text-gray-900 dark:text-gray-100;
 }

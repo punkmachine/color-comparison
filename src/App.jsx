@@ -42,10 +42,6 @@ function App() {
 	}
 
 	useEffect(() => {
-		console.log(hexList);
-	}, [hexList]);
-
-	useEffect(() => {
 		setHexList(prevValue => ({
 			...prevValue,
 			...queryColorList
@@ -58,7 +54,7 @@ function App() {
 
 			<div className="max-w-screen-lg grow shrink-0 basis-auto m-auto flex flex-col items-center justify-center">
 				<div className='relative w-full sm:h-11 mb-4 flex flex-col items-center'>
-					<h2 className='text-center text-2xl 4xl:text-4xl font-bold text-gray-900 dark:text-gray-100'>Compare colors</h2>
+					<h1 className='text-center'>Compare colors</h1>
 					<div className='sm:absolute right-0 top-0 flex gap-1'>
 						<StandartButton onClick={toggleCardSplit}>
 							{cardSplit
@@ -71,7 +67,7 @@ function App() {
 						</StandartButton>
 					</div>
 				</div>
-				<div className={`flex justify-center flex-wrap items-center ${!cardSplit ? 'gap-6' : ''}`}>
+				<div className={`flex flex-wrap justify-center items-center ${!cardSplit ? 'gap-6' : ''}`}>
 		 			{Object.keys(hexList).map(colorCode => {
 		 				return (
 							<ColorCard
@@ -85,12 +81,11 @@ function App() {
 					})}
 				</div>
 			</div>
-			<div className="grow-0 shrink-0 basis-auto m-auto h-12 text-gray-900 dark:text-white">
+			<div className="grow-0 shrink-0 basis-auto m-auto h-12 text-color">
 				Powered by&nbsp;
 				<a
 					href='https://github.com/punkmachine'
 					target="_blank"
-					className='underline hover:text-cyan-700 dark:hover:text-cyan-300 main-transition'
 				>
 					Punk Machine
 				</a>
