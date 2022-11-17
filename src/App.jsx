@@ -8,7 +8,6 @@ import { DarkModeToggle } from './components/DarkModeToggle';
 import { StandartButton } from './components/StandartButton';
 
 // !5 TODO: rgb and rgba
-// !4 TODO: add new color to comparison
 // TODO: add svg component.
 // TODO: нормальная валидация.
 
@@ -36,8 +35,15 @@ function App() {
 	}
 
 	function addColorCard() {
-
+		setHexList({
+			...hexList,
+			[`hex${Object.keys(hexList).length + 1}`]: '',
+		});
 	}
+
+	useEffect(() => {
+		console.log(hexList);
+	}, [hexList]);
 
 	useEffect(() => {
 		setHexList(prevValue => ({
