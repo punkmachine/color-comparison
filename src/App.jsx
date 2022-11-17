@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-import { useQueryColors } from './hooks/useQueryColors';
 import { useToggle } from './hooks/useToogle';
+import { useColorCard } from './hooks/useColorCard';
 
 import { ColorCard } from './components/ColorCard';
 import { DarkModeToggle } from './components/DarkModeToggle';
@@ -12,41 +12,8 @@ import { StandartButton } from './components/StandartButton';
 // TODO: нормальная валидация.
 
 function App() {
-	const { queryColorList, setSearchParams } = useQueryColors();
 	const [cardSplit, toggleCardSplit] = useToggle(false);
-
-	const [hexList, setHexList] = useState({
-		hex1: '',
-		hex2: '',
-	});
-
-	function onInputHex(event) {
-		if (event.target.value.length === 6 && event.target.value[0] !== "#") {
-			event.target.value = `#${event.target.value}`;
-		}
-
-		const newHexList = {
-			...hexList,
-			[event.target.id]: event.target.value,
-		}
-
-		setHexList(newHexList);
-		setSearchParams(newHexList);
-	}
-
-	function addColorCard() {
-		setHexList({
-			...hexList,
-			[`hex${Object.keys(hexList).length + 1}`]: '',
-		});
-	}
-
-	useEffect(() => {
-		setHexList(prevValue => ({
-			...prevValue,
-			...queryColorList
-		}));
-	}, [queryColorList]);
+	const { hexList, onInputHex, addColorCard } = useColorCard();
 
 	return (
 		<div className='relative h-full flex flex-col bg-gray-100 dark:bg-gray-900 main-transition'>
