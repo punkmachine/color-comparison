@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
+
 import { useQueryColors } from './hooks/useQueryColors';
+import { useToggle } from './hooks/useToogle';
+
 import { ColorCard } from './components/ColorCard';
 import { DarkModeToggle } from './components/DarkModeToggle';
 
@@ -8,16 +11,10 @@ import { DarkModeToggle } from './components/DarkModeToggle';
 // TODO: add svg component.
 // TODO: нормальная валидация.
 // TODO: add toggle hook.
-// TODO: add prettier tailwind.
 
 function App() {
 	const { queryColorList, setSearchParams } = useQueryColors();
-
-	const [cardSplit, setCardSplit] = useState(false);
-
-	function toggleCardSplit() {
-		setCardSplit(prevValue => !prevValue);
-	}
+	const [cardSplit, toggleCardSplit] = useToggle(false);
 
 	const [hexList, setHexList] = useState({
 		hex1: '',

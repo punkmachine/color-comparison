@@ -1,11 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useToggle } from './useToogle';
 
 export const useThemeToggle = () => {
-	const [darkMode, setDarkMode] = useState(true);
-
-	function toggleDarkMode() {
-        setDarkMode(prevDarkMode => !prevDarkMode);
-    }
+	const [darkMode, toggleDarkMode] = useToggle(true);
 
 	useEffect(() => {
 		localStorage.setItem('theme', darkMode ? 'dark' : 'light');
