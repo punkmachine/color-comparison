@@ -1,4 +1,6 @@
 import React from 'react';
+import { MdAdd } from "react-icons/md";
+import { BsArrowsExpand, BsArrowsCollapse } from 'react-icons/bs';
 
 import { useToggle } from './hooks/useToggle';
 import { useColorCard } from './hooks/useColorCard';
@@ -8,8 +10,6 @@ import { DarkModeToggle } from './components/DarkModeToggle';
 import { StandartButton } from './components/StandartButton';
 
 // TODO: rgb and rgba
-// TODO: add svg component.
-// TODO: нормальная валидация.
 // TODO: delete card.
 
 function App() {
@@ -26,12 +26,12 @@ function App() {
 					<div className='sm:absolute right-0 top-0 flex gap-1'>
 						<StandartButton onClick={toggleCardSplit}>
 							{cardSplit
-								? <svg className='icons-size' viewBox="0 0 24 24"><path fill="currentColor" d="M18,16V13H15V22H13V2H15V11H18V8L22,12L18,16M2,12L6,16V13H9V22H11V2H9V11H6V8L2,12Z" /></svg>
-								: <svg className='icons-size' viewBox="0 0 24 24"><path fill="currentColor" d="M13,20V4H15.03V20H13M10,20V4H12.03V20H10M5,8L9.03,12L5,16V13H2V11H5V8M20,16L16,12L20,8V11H23V13H20V16Z" /></svg>
+								? <BsArrowsCollapse className='icons-size rotate-90' />
+								: <BsArrowsExpand className='icons-size rotate-90' />
 							}
 						</StandartButton>
 						<StandartButton onClick={addColorCard}>
-							<svg className='icons-size' viewBox="0 0 24 24"><path fill="currentColor" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" /></svg>
+							<MdAdd className='icons-size' />
 						</StandartButton>
 					</div>
 				</div>
