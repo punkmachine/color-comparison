@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useToggle } from './useToogle';
+import { useToggle } from './useToggle';
 
 export const useThemeToggle = () => {
 	const [darkMode, toggleDarkMode] = useToggle(true);

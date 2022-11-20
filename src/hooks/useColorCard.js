@@ -10,7 +10,7 @@ export const useColorCard = () => {
 	});
 
 	function onInputHex(event) {
-		if (event.target.value.length === 6 && event.target.value[0] !== "#") {
+		if (event.target.value.length > 0 && event.target.value[0] !== "#") {
 			event.target.value = `#${event.target.value}`;
 		}
 

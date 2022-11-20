@@ -1,15 +1,16 @@
 import React from 'react';
 
-import { useToggle } from './hooks/useToogle';
+import { useToggle } from './hooks/useToggle';
 import { useColorCard } from './hooks/useColorCard';
 
 import { ColorCard } from './components/ColorCard';
 import { DarkModeToggle } from './components/DarkModeToggle';
 import { StandartButton } from './components/StandartButton';
 
-// !5 TODO: rgb and rgba
+// TODO: rgb and rgba
 // TODO: add svg component.
 // TODO: нормальная валидация.
+// TODO: delete card.
 
 function App() {
 	const [cardSplit, toggleCardSplit] = useToggle(false);
