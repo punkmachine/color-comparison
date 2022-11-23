@@ -19,6 +19,7 @@ export const useColorCard = () => {
 			[event.target.id]: event.target.value,
 		}
 
+		// ? Возможно не нужно
 		setHexList(newHexList);
 		setSearchParams(newHexList);
 	}
@@ -30,6 +31,22 @@ export const useColorCard = () => {
 		});
 	}
 
+	function deleteColorCard(id) {
+		let newHexList = {};
+
+		for (let key in hexList) {
+			if (key !== id) {
+				newHexList = {
+					...newHexList,
+					[key]: hexList[key]
+				};
+			}
+		}
+
+		setHexList(newHexList);
+		setSearchParams(newHexList);
+	}
+
 	useEffect(() => {
 		setHexList(prevValue => ({
 			...prevValue,
@@ -37,5 +54,5 @@ export const useColorCard = () => {
 		}));
 	}, [queryColorList]);
 
-	return { hexList, onInputHex, addColorCard };
+	return { hexList, onInputHex, addColorCard, deleteColorCard };
 }

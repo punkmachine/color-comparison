@@ -14,7 +14,7 @@ import { StandartButton } from './components/StandartButton';
 
 function App() {
 	const [cardSplit, toggleCardSplit] = useToggle(false);
-	const { hexList, onInputHex, addColorCard } = useColorCard();
+	const { hexList, onInputHex, addColorCard, deleteColorCard } = useColorCard();
 
 	return (
 		<div className='relative h-full flex flex-col bg-gray-100 dark:bg-gray-900 main-transition'>
@@ -44,6 +44,7 @@ function App() {
 								id={colorCode}
 								hexValue={hexList[colorCode]}
 								cardSplit={cardSplit}
+								deleteColorCard={deleteColorCard}
 							/>
 						);
 					})}
