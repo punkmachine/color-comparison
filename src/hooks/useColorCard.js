@@ -19,16 +19,16 @@ export const useColorCard = () => {
 			[event.target.id]: event.target.value,
 		}
 
-		// ? Возможно не нужно
-		setHexList(newHexList);
 		setSearchParams(newHexList);
 	}
 
 	function addColorCard() {
-		setHexList({
+		const newHexList = {
 			...hexList,
 			[`hex${Object.keys(hexList).length + 1}`]: '',
-		});
+		}
+
+		setSearchParams(newHexList);
 	}
 
 	function deleteColorCard(id) {
