@@ -7,6 +7,7 @@ import { StandartButton } from './StandartButton';
 
 const hexRegexFull = /^#((\d|[A-Fa-f]){3}|(\d|[A-Fa-f]){6})$/;
 const hexRegexMask = /^#((\d|[A-Fa-f]){0,6})$/;
+const hexRegexKeyDown = /\d|[A-Fa-f]|#/;
 
 function ColorCard(props) {
 	const { id, onInputHex, hexValue, cardSplit, deleteColorCard } = props;
@@ -15,6 +16,12 @@ function ColorCard(props) {
 
 	const hexValueTest = () => hexRegexMask.test(hexValue) || !hexValue;
 	const hexValueFullTest = () => hexRegexFull.test(hexValue);
+
+	function validationKeyDown(event) {
+		if (!hexRegexKeyDown.test(event.key)|| (event.keyCode === 86 && event.ctrlKey)) {
+			event.preventDefault();
+		}
+	}
 
 	return (
 		<div
@@ -43,8 +50,11 @@ function ColorCard(props) {
 				id={id}
 				value={hexValue}
 				onInput={onInputHex}
+				maxLength={7}
+				autoComplete="off"
+				onKeyDown={validationKeyDown}
 				className={
-					`${!cardSplit ? 'block' : 'hidden'} block w-full bg-gray-50 border text-gray-900 text-sm 4xl:text-lg rounded-lg p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus-visible:border-black ${hexValueTest() ? 'border-gray-300' : 'border-2 border-red-800 focus-visible:border-red-800' }`
+					`${!cardSplit ? 'block' : 'hidden'} block w-full bg-gray-50 border text-gray-900 text-sm 4xl:text-lg rounded-lg p-2.5 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white focus-visible:border-black ${hexValueTest() ? 'border-gray-300 dark:border-gray-600' : 'border-2 border-red-800 focus-visible:border-red-800' }`
 				}
 				placeholder="#"
 			/>

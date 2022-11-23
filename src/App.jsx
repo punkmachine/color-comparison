@@ -10,7 +10,7 @@ import { DarkModeToggle } from './components/DarkModeToggle';
 import { StandartButton } from './components/StandartButton';
 
 // TODO: rgb and rgba
-// TODO: delete card.
+// TODO: add copy to clipboard
 
 function App() {
 	const [cardSplit, toggleCardSplit] = useToggle(false);
