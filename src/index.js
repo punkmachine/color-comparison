@@ -7,7 +7,7 @@ import './assets/styles/main.css';
 
 const router = createBrowserRouter([
 	{
-		path: "/",
+		path: process.env.NODE_ENV === 'production' ? "/color-comparison/" : "/",
 		element: <App />,
 	},
 ]);
