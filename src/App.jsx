@@ -7,10 +7,7 @@ import { useColorCard } from './hooks/useColorCard';
 
 import { ColorCard } from './components/ColorCard';
 import { DarkModeToggle } from './components/DarkModeToggle';
-import { StandartButton } from './components/StandartButton';
-
-// TODO: rgb and rgba
-// TODO: add copy to clipboard
+import { StandardButton } from './components/StandardButton';
 
 function App() {
 	const [cardSplit, toggleCardSplit] = useToggle(false);
@@ -24,15 +21,15 @@ function App() {
 				<div className='relative w-full sm:h-11 mb-4 flex flex-col items-center'>
 					<h1 className='text-center'>Compare colors</h1>
 					<div className='sm:absolute right-0 top-0 flex gap-1'>
-						<StandartButton onClick={toggleCardSplit}>
+						<StandardButton onClick={toggleCardSplit}>
 							{cardSplit
 								? <BsArrowsCollapse className='icons-size rotate-90' />
 								: <BsArrowsExpand className='icons-size rotate-90' />
 							}
-						</StandartButton>
-						<StandartButton onClick={addColorCard}>
+						</StandardButton>
+						<StandardButton onClick={addColorCard}>
 							<MdAdd className='icons-size' />
-						</StandartButton>
+						</StandardButton>
 					</div>
 				</div>
 				<div className={`flex flex-wrap justify-center items-center ${!cardSplit ? 'gap-6' : ''}`}>

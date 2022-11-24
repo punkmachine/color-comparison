@@ -3,7 +3,7 @@ import { MdDelete } from "react-icons/md";
 
 import { useToggle } from '../hooks/useToggle';
 
-import { StandartButton } from './StandartButton';
+import { StandardButton } from './StandardButton';
 
 const hexRegexFull = /^#((\d|[A-Fa-f]){3}|(\d|[A-Fa-f]){6})$/;
 const hexRegexMask = /^#((\d|[A-Fa-f]){0,6})$/;
@@ -29,12 +29,12 @@ function ColorCard(props) {
 			onMouseLeave={toggleVisibleDeleteButton}
 			className={`${!cardSplit ? 'h-64 p-4 border border-gray-200 dark:border-gray-900 shadow-md' : ''} relative 4xl:h-72 4xl:w-72 max-w-sm rounded-lg first-letter:dark:shadow-slate-800m bg-white dark:bg-gray-800`}
 		>
-			<StandartButton
+			<StandardButton
 				className={`${visibleDeleteButton ? 'opacity-100' : 'opacity-0'} absolute right-2 top-2`}
 				onClick={() => deleteColorCard(id)}
 			>
 				<MdDelete className='icons-size' />
-			</StandartButton>
+			</StandardButton>
 			<div
 				className={`w-44 h-28 4xl:h-36 4xl:w-48 ${!hexValueFullTest() ? 'border border-black border-solid' : ''}`}
 				style={{ background: hexValueFullTest() ? hexValue : '' }}

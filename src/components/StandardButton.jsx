@@ -1,6 +1,6 @@
 import React from 'react';
 
-function StandartButton(props) {
+function StandardButton(props) {
 	const { onClick, className } = props;
 
 	return (
@@ -13,4 +13,4 @@ function StandartButton(props) {
 	);
 }
 
-export { StandartButton };
+export { StandardButton };
