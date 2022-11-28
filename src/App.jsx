@@ -8,6 +8,7 @@ import { useColorCard } from './hooks/useColorCard';
 import { ColorCard } from './components/ColorCard';
 import { DarkModeToggle } from './components/DarkModeToggle';
 import { StandardButton } from './components/StandardButton';
+import { Footer } from './components/Footer';
 
 // TODO: add rgb.
 // TODO: add copy to clipboard btn.
@@ -52,15 +53,7 @@ function App() {
 					})}
 				</div>
 			</div>
-			<div className="grow-0 shrink-0 basis-auto m-auto h-12 text-color">
-				Powered by&nbsp;
-				<a
-					href='https://github.com/punkmachine'
-					target="_blank"
-				>
-					Punk Machine
-				</a>
-			</div>
+			<Footer />
 		</div>
 	);
 }
