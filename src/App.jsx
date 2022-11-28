@@ -9,6 +9,11 @@ import { ColorCard } from './components/ColorCard';
 import { DarkModeToggle } from './components/DarkModeToggle';
 import { StandardButton } from './components/StandardButton';
 
+// TODO: add rgb.
+// TODO: add copy to clipboard btn.
+// TODO: ctrl+x not working in color card.
+// TODO: add drag and drop.
+
 function App() {
 	const [cardSplit, toggleCardSplit] = useToggle(false);
 	const { hexList, onInputHex, addColorCard, deleteColorCard } = useColorCard();
