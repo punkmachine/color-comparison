@@ -32,19 +32,24 @@ export const useColorCard = () => {
 	}
 
 	function deleteColorCard(id) {
-		let newHexList = {};
+		if (Object.keys(hexList).length > 2) {
+			let newHexList = {};
 
-		for (let key in hexList) {
-			if (key !== id) {
-				newHexList = {
-					...newHexList,
-					[key]: hexList[key]
-				};
+			for (let key in hexList) {
+				if (key !== id) {
+					newHexList = {
+						...newHexList,
+						[key]: hexList[key]
+					};
+				}
 			}
-		}
 
-		setHexList(newHexList);
-		setSearchParams(newHexList);
+			setHexList(newHexList);
+			setSearchParams(newHexList);
+		} else {
+			// TODO: validation toastify
+			console.log('error');
+		}
 	}
 
 	useEffect(() => {

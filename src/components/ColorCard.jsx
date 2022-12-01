@@ -18,8 +18,10 @@ function ColorCard(props) {
 	const hexValueFullTest = () => hexRegexFull.test(hexValue);
 
 	function validationKeyDown(event) {
-		if (!hexRegexKeyDown.test(event.key)|| (event.keyCode === 86 && event.ctrlKey)) {
-			event.preventDefault();
+		if (!hexRegexKeyDown.test(event.key) || (event.keyCode === 86 && event.ctrlKey)) {
+			if (!(event.keyCode === 88 && event.ctrlKey)) {
+				event.preventDefault();
+			}
 		}
 	}
 
@@ -54,15 +56,10 @@ function ColorCard(props) {
 				autoComplete="off"
 				onKeyDown={validationKeyDown}
 				className={
-					`${!cardSplit ? 'block' : 'hidden'} block w-full bg-gray-50 border text-gray-900 text-sm 4xl:text-lg rounded-lg p-2.5 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white focus-visible:border-black ${hexValueTest() ? 'border-gray-300 dark:border-gray-600' : 'border-2 border-red-800 focus-visible:border-red-800' }`
+					`${!cardSplit ? 'block' : 'hidden'} w-full bg-gray-50 border text-gray-900 text-sm 4xl:text-lg rounded-lg p-2.5 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white focus-visible:border-black ${hexValueTest() ? 'border-gray-300 dark:border-gray-600' : 'border-2 border-red-800 focus-visible:border-red-800' }`
 				}
 				placeholder="#"
 			/>
-			{
-				hexValueTest()
-					? null
-					: <span className='text-xs 4xl:text-lg text-red-800'>Not valid</span>
-			}
 		</div>
 	);
 }

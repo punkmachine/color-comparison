@@ -11,8 +11,6 @@ import { StandardButton } from './components/StandardButton';
 import { Footer } from './components/Footer';
 
 // TODO: add rgb.
-// TODO: add copy to clipboard btn.
-// TODO: ctrl+x not working in color card.
 // TODO: add drag and drop.
 
 function App() {
