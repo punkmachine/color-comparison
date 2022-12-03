@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
+import toast from 'react-hot-toast';
 import { useQueryColors } from './useQueryColors';
+import { Alert } from '../components/Alert';
 
 export const useColorCard = () => {
 	const { queryColorList, setSearchParams } = useQueryColors();
@@ -47,8 +49,7 @@ export const useColorCard = () => {
 			setHexList(newHexList);
 			setSearchParams(newHexList);
 		} else {
-			// TODO: validation toastify
-			console.log('error');
+			toast.custom(t => <Alert t={t} text='Вы не можете удалить карточку, если их всего два на странице' />)
 		}
 	}
 

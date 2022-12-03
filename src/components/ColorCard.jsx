@@ -29,7 +29,7 @@ function ColorCard(props) {
 		<div
 			onMouseEnter={toggleVisibleDeleteButton}
 			onMouseLeave={toggleVisibleDeleteButton}
-			className={`${!cardSplit ? 'h-64 p-4 border border-gray-200 dark:border-gray-900 shadow-md' : ''} relative 4xl:h-72 4xl:w-72 max-w-sm rounded-lg first-letter:dark:shadow-slate-800m bg-white dark:bg-gray-800`}
+			className={`${!cardSplit ? 'h-64 p-4 border border-gray-200 dark:border-gray-900 shadow-md' : ''} relative 4xl:h-72 4xl:w-72 max-w-sm rounded-lg bg-white dark:bg-gray-800`}
 		>
 			<StandardButton
 				className={`${visibleDeleteButton ? 'opacity-100' : 'opacity-0'} absolute right-2 top-2`}

@@ -29,3 +29,7 @@ a {
 .text-color {
 	@apply text-gray-900 dark:text-gray-100;
 }
+
+.flex-center {
+	@apply flex justify-center items-center;
+}

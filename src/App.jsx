@@ -1,6 +1,9 @@
 import React from 'react';
 import { MdAdd } from "react-icons/md";
 import { BsArrowsExpand, BsArrowsCollapse } from 'react-icons/bs';
+import { Toaster } from 'react-hot-toast';
+
+import { MdClose } from "react-icons/md";
 
 import { useToggle } from './hooks/useToggle';
 import { useColorCard } from './hooks/useColorCard';
@@ -21,7 +24,7 @@ function App() {
 		<div className='relative h-full flex flex-col bg-gray-100 dark:bg-gray-900 main-transition'>
 			<DarkModeToggle />
 
-			<div className="max-w-screen-lg grow shrink-0 basis-auto m-auto flex flex-col items-center justify-center">
+			<div className="max-w-screen-lg grow shrink-0 basis-auto m-auto flex-center flex-col">
 				<div className='relative w-full sm:h-11 mb-4 flex flex-col items-center'>
 					<h1 className='text-center'>Compare colors</h1>
 					<div className='sm:absolute right-0 top-0 flex gap-1'>
@@ -36,7 +39,7 @@ function App() {
 						</StandardButton>
 					</div>
 				</div>
-				<div className={`flex flex-wrap justify-center items-center ${!cardSplit ? 'gap-6' : ''}`}>
+				<div className={`flex-center flex-wrap ${!cardSplit ? 'gap-6' : ''}`}>
 		 			{Object.keys(hexList).map(colorCode => {
 		 				return (
 							<ColorCard
@@ -52,6 +55,8 @@ function App() {
 				</div>
 			</div>
 			<Footer />
+
+			<Toaster />
 		</div>
 	);
 }
