@@ -33,3 +33,7 @@ a {
 .flex-center {
 	@apply flex justify-center items-center;
 }
+
+.main-border {
+	@apply border border-solid border-gray-300 dark:border-gray-600;
+}

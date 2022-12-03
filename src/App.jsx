@@ -3,8 +3,6 @@ import { MdAdd } from "react-icons/md";
 import { BsArrowsExpand, BsArrowsCollapse } from 'react-icons/bs';
 import { Toaster } from 'react-hot-toast';
 
-import { MdClose } from "react-icons/md";
-
 import { useToggle } from './hooks/useToggle';
 import { useColorCard } from './hooks/useColorCard';
 
@@ -12,9 +10,6 @@ import { ColorCard } from './components/ColorCard';
 import { DarkModeToggle } from './components/DarkModeToggle';
 import { StandardButton } from './components/StandardButton';
 import { Footer } from './components/Footer';
-
-// TODO: add rgb.
-// TODO: add drag and drop.
 
 function App() {
 	const [cardSplit, toggleCardSplit] = useToggle(false);
